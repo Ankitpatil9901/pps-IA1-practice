@@ -1,5 +1,15 @@
-GNU bash, version 4.4.20(1)-release (x86_64-pc-linux-gnu)
-gcc -g p1final.c
+ 
+ gcc -g p1final.c
+ gdb ./a.out
+GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
+Copyright (C) 2018 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
+and "show warranty" for details.
+This GDB was configured as "x86_64-linux-gnu".
+ 
+ 
  gcc -g p1final.c
  gdb ./a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
@@ -28,19 +38,19 @@ Breakpoint 1, main () at p1final.c:17
 (gdb) n
 19    input (&a,&b);
 (gdb) s
-input (a=0x7ffd2acb81ac, b=0x7ffd2acb81b0) at p1final.c:5
+input (a=0x7fff79fd525c, b=0x7fff79fd5260) at p1final.c:5
 5     printf("Enter two numbers:");
 (gdb) n
 6     scanf("%d%d",a,b);
 (gdb) n
-Enter two numbers:8
-5
+Enter two numbers:5
+4
 7   }
 (gdb) n
 main () at p1final.c:20
 20    add(a,b,&sum);
 (gdb) s
-add (a=8, b=5, sum=0x7ffd2acb81b4) at p1final.c:10
+add (a=5, b=4, sum=0x7fff79fd5264) at p1final.c:10
 10    *sum=a+b;
 (gdb) n
 11  }
@@ -48,16 +58,19 @@ add (a=8, b=5, sum=0x7ffd2acb81b4) at p1final.c:10
 main () at p1final.c:21
 21    output(a,b,sum);
 (gdb) s
-output (a=8, b=5, sum=13) at p1final.c:14
+output (a=5, b=4, sum=9) at p1final.c:14
 14    printf("%d +%d is:%d",a,b,sum);
 (gdb) n
 15  }
 (gdb) n
 main () at p1final.c:22
-22  }
+22    return 0;
+(gdb) n
+23  }
 (gdb) q
 A debugging session is active.
 
-    Inferior 1 [process 171] will be killed.
+    Inferior 1 [process 56] will be killed.
 
 Quit anyway? (y or n) y
+ ^C
