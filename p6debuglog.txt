@@ -26,76 +26,24 @@ Breakpoint 1, main () at p6final.c:35
 (gdb) n
 38      input_two_string(a,b);
 (gdb) s
-input_two_string (a=0x7fff1815d590 "\370\325\025\030\377\177", 
-    b=0x7fff1815d5b0 "@\253\027\062\v\177") at p6final.c:6
+input_two_string (a=0x7ffe841bf060 "\310\360\033\204\376\177", 
+    b=0x7ffe841bf080 "@+Unx\177") at p6final.c:6
 6     printf("Enter First String:");
 (gdb) n
 7     scanf("%s",a);
 (gdb) n
-Enter First String:reva
+Enter First String:8
 8     printf("Enter second string:");
 (gdb) n
 9     scanf("%s",b);
 (gdb) n
-Enter second string:university
+Enter second string:5
 10    }
 (gdb) n
 main () at p6final.c:39
 39      result=strcp(a,b);
 (gdb) s
-strcp (a=0x7fff1815d590 "reva", b=0x7fff1815d5b0 "university")
-    at p6final.c:13
-13      int value=strcmp(a,b);
-(gdb) n
- 
- 
- gcc -g p6final.c
- gdb ./a.out
-GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
-Copyright (C) 2018 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-This is free software: you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.  Type "show copying"
-and "show warranty" for details.
-This GDB was configured as "x86_64-linux-gnu".
-Type "show configuration" for configuration details.
-For bug reporting instructions, please see:
-<http://www.gnu.org/software/gdb/bugs/>.
-Find the GDB manual and other documentation resources online at:
-<http://www.gnu.org/software/gdb/documentation/>.
-For help, type "help".
-Type "apropos word" to search for commands related to "word"...
-Reading symbols from ./a.out...done.
-(gdb) b main
-Breakpoint 1 at 0x8af: file p6final.c, line 35.
-(gdb) r
-Starting program: /home/runner/pps-IA1-practice/a.out 
-warning: Error disabling address space randomization: Operation not permitted
-
-Breakpoint 1, main () at p6final.c:35
-35    {
-(gdb) n
-38      input_two_string(a,b);
-(gdb) s
-input_two_string (a=0x7ffe67d15dd0 "8^\321g\376\177", 
-    b=0x7ffe67d15df0 "@\253\t\243\031\177") at p6final.c:6
-6     printf("Enter First String:");
-(gdb) n
-7     scanf("%s",a);
-(gdb) n
-Enter First String:reva
-8     printf("Enter second string:");
-(gdb) n
-9     scanf("%s",b);
-(gdb) n
-Enter second string:university
-10    }
-(gdb) n
-main () at p6final.c:39
-39      result=strcp(a,b);
-(gdb) s
-strcp (a=0x7ffe67d15dd0 "reva", b=0x7ffe67d15df0 "university")
-    at p6final.c:13
+strcp (a=0x7ffe841bf060 "8", b=0x7ffe841bf080 "5") at p6final.c:13
 13      int value=strcmp(a,b);
 (gdb) n
 14      return value;
@@ -105,18 +53,19 @@ strcp (a=0x7ffe67d15dd0 "reva", b=0x7ffe67d15df0 "university")
 main () at p6final.c:40
 40      output(a,b,result);
 (gdb) s
-output (a=0x7ffe67d15dd0 "reva", b=0x7ffe67d15df0 "university", 
-    result=-3) at p6final.c:18
+output (a=0x7ffe841bf060 "8", b=0x7ffe841bf080 "5", result=3) at p6final.c:18
 18      if(result==0)
 (gdb) n
 22      else if(result<0)
 (gdb) n
-24        printf("%s is smaller than %s \n",a,b);
+27    else if (result>0) 
 (gdb) n
-reva is smaller than university 
-25        printf("%s is Bigger than %s \n",b,a);
+29       printf("%s is Bigger than %s \n",a,b);
 (gdb) n
-university is Bigger than reva 
+8 is Bigger than 5 
+30       printf("%s is Smaller than %s \n",b,a);
+(gdb) n
+5 is Smaller than 8 
 33    }
 (gdb) n
 main () at p6final.c:41
@@ -126,6 +75,7 @@ main () at p6final.c:41
 (gdb) q
 A debugging session is active.
 
-    Inferior 1 [process 775] will be killed.
+    Inferior 1 [process 3198] will be killed.
 
 Quit anyway? (y or n) y
+ 
