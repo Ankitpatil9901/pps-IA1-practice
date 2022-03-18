@@ -1,4 +1,4 @@
- gcc -g p4final.c
+ gcc -g p5final.c
  gdb ./a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -16,174 +16,83 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from ./a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x8fd: file p4final.c, line 40.
+Breakpoint 1 at 0x82e: file p5final.c, line 30.
 (gdb) r
 Starting program: /home/runner/pps-IA1-practice/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p4final.c:40
-40  {
-(gdb) n
-42    n=input_array_size();
+Breakpoint 1, main () at p5final.c:30
+warning: Source file is more recent than executable.
+30  a=input();
 (gdb) s
-input_array_size () at p4final.c:4
+input () at p5final.c:4
 4   {
 (gdb) n
-6     printf("Enter array size:\n");
+6     printf("enter the number for sqrt\n:");
 (gdb) n
-Enter array size:
-7     scanf("%d",&n);
+enter the number for sqrt
+7     scanf("%f",&n);
 (gdb) n
-8
+:5
 8     return n;
 (gdb) n
 9   }
 (gdb) n
-main () at p4final.c:43
-43    int a[n];
+main () at p5final.c:31
+31  sqrt=my_sqrt(a);
 (gdb) s
-44    input_array(n,a);
+my_sqrt (n=5) at p5final.c:12
+12    float sqrt=1,i;
+(gdb) n
+13    i=1;
+(gdb) n
+14    for(i=1;i<n;++i)
+(gdb) n
+16      if(i*i==n){
+(gdb) n
+19      sqrt=i;
+(gdb) n
+14    for(i=1;i<n;++i)
+(gdb) n
+16      if(i*i==n){
+(gdb) n
+19      sqrt=i;
+(gdb) n
+14    for(i=1;i<n;++i)
+(gdb) n
+16      if(i*i==n){
+(gdb) n
+19      sqrt=i;
+(gdb) n
+14    for(i=1;i<n;++i)
+(gdb) n
+16      if(i*i==n){
+(gdb) n
+19      sqrt=i;
+(gdb) n
+14    for(i=1;i<n;++i)
+(gdb) n
+21    return sqrt;
+(gdb) n
+22  }
+(gdb) n
+main () at p5final.c:32
+32  output(a,sqrt);
 (gdb) s
-input_array (n=8, a=0x7ffef7d759d0) at p4final.c:14
-14    printf("Enter the elements of the array:\n");
+output (n=5, sqrt_result=4) at p5final.c:25
+25    printf("the square root of %f is %f\n",n,sqrt_result);
 (gdb) n
-Enter the elements of the array:
-15    for(i=0; i<n; i++)
+the square root of 5.000000 is 4.000000
+26  }
+(gdb) nn
+Undefined command: "nn".  Try "help".
 (gdb) n
-17      scanf("%d",&a[i]);
+main () at p5final.c:33
+33  return 0;
 (gdb) n
-6
-15    for(i=0; i<n; i++)
-(gdb) n
-17      scanf("%d",&a[i]);
-(gdb) n
-5
-15    for(i=0; i<n; i++)
-(gdb) n
-17      scanf("%d",&a[i]);
-(gdb) n
-4
-15    for(i=0; i<n; i++)
-(gdb) n
-17      scanf("%d",&a[i]);
-(gdb) n
-8
-15    for(i=0; i<n; i++)
-(gdb) n
-17      scanf("%d",&a[i]);
-(gdb) 
-5
-15    for(i=0; i<n; i++)
-(gdb) n
-17      scanf("%d",&a[i]);
-(gdb) n
-6
-15    for(i=0; i<n; i++)
-(gdb) n
-17      scanf("%d",&a[i]);
-(gdb) n
-8
-15    for(i=0; i<n; i++)
-(gdb) n
-17      scanf("%d",&a[i]);
-(gdb) n
-7
-15    for(i=0; i<n; i++)
-(gdb) n
-19  }
-(gdb) n
-main () at p4final.c:45
-45    sum = sumofarray(n,a);
-(gdb) s
-sumofarray (n=8, a=0x7ffef7d759d0) at p4final.c:22
-22    int i,sum=0;
-(gdb) n
-23    for(i=0; i<n; i++)
-(gdb) n
-25      sum +=a[i];
-(gdb) n
-23    for(i=0; i<n; i++)
-(gdb) n
-25      sum +=a[i];
-(gdb) n
-23    for(i=0; i<n; i++)
-(gdb) n
-25      sum +=a[i];
-(gdb) n
-23    for(i=0; i<n; i++)
-(gdb) n
-25      sum +=a[i];
-(gdb) n
-23    for(i=0; i<n; i++)
-(gdb) n
-25      sum +=a[i];
-(gdb) n
-23    for(i=0; i<n; i++)
-(gdb) n
-25      sum +=a[i];
-(gdb) n
-23    for(i=0; i<n; i++)
-(gdb) n
-25      sum +=a[i];
-(gdb) n
-23    for(i=0; i<n; i++)
-(gdb) n
-25      sum +=a[i];
-(gdb) n
-23    for(i=0; i<n; i++)
-(gdb) n
-27  return sum;
-(gdb) n
-28  }
-(gdb) n
-main () at p4final.c:46
-46    output(n,a,sum);
-(gdb) s
-output (n=8, a=0x7ffef7d759d0, sum=49) at p4final.c:32
-32    printf("The sumofarray elements\n");
-(gdb) n
-The sumofarray elements
-33    for(i=0;i<n-1; i++)
-(gdb) n
-35      printf("%d +",a[i]);
-(gdb) n
-33    for(i=0;i<n-1; i++)
-(gdb) n
-35      printf("%d +",a[i]);
-(gdb) n
-33    for(i=0;i<n-1; i++)
-(gdb) n
-35      printf("%d +",a[i]);
-(gdb) n
-33    for(i=0;i<n-1; i++)
-(gdb) n
-35      printf("%d +",a[i]);
-(gdb) n
-33    for(i=0;i<n-1; i++)
-(gdb) n
-35      printf("%d +",a[i]);
-(gdb) n
-33    for(i=0;i<n-1; i++)
-(gdb) n
-35      printf("%d +",a[i]);
-(gdb) n
-33    for(i=0;i<n-1; i++)
-(gdb) n
-35      printf("%d +",a[i]);
-(gdb) n
-33    for(i=0;i<n-1; i++)
-(gdb) n
-37    printf("%d is %d \n",a[n-1],sum);
-(gdb) n
-6 +5 +4 +8 +5 +6 +8 +7 is 49 
-38  }
-(gdb) n
-main () at p4final.c:47
-47    return 0;
-(gdb) n
-49  }(gdb) q
+34  }r(gdb) q
 A debugging session is active.
 
-    Inferior 1 [process 1214] will be killed.
+    Inferior 1 [process 2812] will be killed.
 
-Quit anyway? (y or n) y
+Quit anyway? (y or n) 
